@@ -1,0 +1,63 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+html[data-theme="light"] {
+    @include themeVars(
+        $white-2, // Background color
+        $black-1, // Text color
+        $blue-1, // Primary color
+        $grey-3, // Secondary color
+        $white-1, // Card background color
+        $grey-2, // Card border color
+        $orange-panel-light, // Orange panel color
+        $gray-panel-light, // Gray panel color
+        $font-poppins, // Font family
+        $neutral-900, // Button background
+        $white-1, // Button text color
+        $dark-overlay-8, // Common button background
+        $orange-panel, // Common button hover color
+        $white-1, // Common button text color
+        $font-Josefin, // Common button font
+        $light-theme-bg // Background image
+    );
+
+    // Breadcrumb Styles for Light Theme
+        .breadcrumb {
+            @include breadcrumbStyles(
+                $black-1, // Text color
+                $orange-panel, // Active item text color
+                $font-poppins,
+               
+            );
+        }
+}
+
+html[data-theme="dark"] {
+    @include themeVars(
+        $neutral-900, // Background color
+        $neutral-0, // Text color
+        $primary-500, // Primary color
+        $neutral-500, // Secondary color
+        $dark-overlay-8, // Card background color
+        $neutral-700, // Card border color
+        $orange-panel, // Orange panel color
+        $gray-panel, // Gray panel color
+        $font-poppins, // Font family
+        $white-1, // Button background
+        $neutral-900, // Button text color
+        $white-1, // Common button background
+        $blue-1, // Common button hover color
+        $dark-overlay-8, // Common button text color
+        $font-Josefin, // Common button font
+        $dark-theme-bg // Background image
+    );
+
+    // Breadcrumb Styles for Dark Theme
+        .breadcrumb {
+            @include breadcrumbStyles(
+                $neutral-0, // Text color
+                $orange-panel, // Active item text color
+                $font-poppins,
+            );
+        }
+}

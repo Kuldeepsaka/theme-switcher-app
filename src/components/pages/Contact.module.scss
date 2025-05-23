@@ -1,0 +1,28 @@
+.main {
+    overflow-x: hidden;
+    padding: 0;
+
+    section {
+        height: 86vh;
+        padding: 0 clamp(4rem, 12vw, 20rem);
+        display: grid;
+        place-content: center;
+
+        p{
+            font-size: clamp(2rem, 5vw, 8rem);
+        }
+        &:nth-child(1) {
+            border-bottom: 1px solid var(--card-border-color);
+        }
+        &:nth-child(2) {
+            background: var(--card-background-color);
+        }
+        &:nth-child(3) {
+            background: var(--primary-color);
+            color: #fff;
+        }
+        &:nth-child(4) {
+            background: var(--orange-panel-color);
+        }
+    }
+}

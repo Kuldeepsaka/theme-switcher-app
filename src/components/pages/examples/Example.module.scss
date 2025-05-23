@@ -1,0 +1,105 @@
+.themed-section {
+    background-image: var(--mode-bg-image); // ✅ now it's correct
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 83vh;
+    transition: background-image 0.3s ease; // fallback
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-color: transparent;
+    transition: 0.3s ease-in-out all;
+    opacity: 1;
+    filter: blur(0);
+    mix-blend-mode: screen; // helps glow merge with image
+    overflow: hidden;
+}
+
+.splitText{
+    max-width: 70%;
+    text-align: center;
+    h2{
+        line-height: 50px;
+        color: var(--color);
+        text-transform: capitalize;
+        font-size: 50px;
+        letter-spacing: 5px;
+    }
+}
+
+/* LIGHT THEME — Sunburst Glow with Base Color */
+@keyframes expandOverlayLight {
+    0% {
+        width: 0px;
+        height: 0px;
+        background-color: transparent;
+        box-shadow: none;
+        opacity: 1;
+        transform-origin: top right;
+        filter: blur(0);
+    }
+
+    100% {
+        width: 250%;
+        height: 250%;
+        background-color: rgba(255, 221, 0, 0.897);
+        box-shadow:
+            0 0 80px 40px rgba(255, 221, 0, 0.8),
+            0 0 120px 60px rgba(255, 170, 0, 0.767),
+            0 0 200px 100px rgba(255, 200, 0, 0.3);
+        filter: blur(490px);
+        opacity: 0;
+        transform-origin: bottom left;
+    }
+}
+
+
+/* DARK THEME — Moonlight Glow with Base Color */
+@keyframes expandOverlayDark {
+    0% {
+        width: 0px;
+        height: 0px;
+        background-color: transparent;
+        box-shadow: none;
+        opacity: 1;
+        transform-origin: top right;
+        filter: blur(0);
+    }
+
+    100% {
+        width: 250%;
+            height: 250%;
+            background-color: rgba(44, 62, 80, 0.932);
+            box-shadow:
+                0 0 60px 30px rgba(44, 62, 80, 0.7),
+                90px 0 200px 50px rgba(52, 73, 94, 0.795),
+                0 30px 150px 80px rgba(52, 73, 94, 0.3);
+            filter: blur(450px);
+            opacity: 0;
+            transform-origin: bottom left;
+    }
+}
+
+
+/* Apply Theme Animations */
+html[data-theme="light"] .overlay {
+    animation: expandOverlayLight 1.8s ease-in-out forwards;
+    z-index: 2;
+    overflow: hidden;
+}
+
+html[data-theme="dark"] .overlay {
+    animation: expandOverlayDark 1.8s ease-in-out forwards;
+    z-index: 2;
+    overflow: hidden;
+}

@@ -1,0 +1,82 @@
+.heroSection {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &.light {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+
+    &.dark {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+
+    // Canvas layer
+    canvas {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: 0;
+        pointer-events: none;
+    }
+}
+
+.heroContainer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: stretch;
+    gap: 2rem;
+    width: 100% !important;
+    padding: 2rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.heroText {
+    flex: 1;
+
+    h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: inherit;
+    }
+
+    p {
+        font-size: 1.25rem;
+        margin: 1rem 0 2rem;
+        color: inherit;
+    }
+
+    .heroBtn {
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: var(--common-button-hover);
+            color: #fff;
+        }
+    }
+}
+
+.heroImage {
+    flex: 1;
+
+    img {
+        width: 100%;
+        height: 70vh;
+        object-fit: cover;
+    }
+}

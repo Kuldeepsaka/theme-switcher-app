@@ -1,0 +1,19 @@
+@use '../src/scss/themes' as *;
+
+body,html, #root{
+    height: 100%;
+    width: 100%;
+    
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--color);
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+    margin: 0;
+    font-weight: 500;
+    font-family: var(--font-family), sans-serif; // Use the theme-based font-family
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

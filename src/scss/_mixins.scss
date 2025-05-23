@@ -1,0 +1,90 @@
+// 1️⃣ Mixin to generate all theme CSS variables at once
+//    Call within a selector (e.g. html[data-theme])
+@mixin themeVars
+    (
+        $bg,
+        $text,
+        $primary,
+        $secondary,
+        $card-bg,
+        $card-border,
+        $orange-panel,
+        $gray-panel,
+        $font-family,
+        $theme-btn-bg,
+        $theme-btn-text,
+        $common-btn-bg,
+        $common-btn-hover,
+        $common-btn-text,
+        $common-btn-font,
+        $bg-img
+    )
+    {
+        --background-color: #{$bg};
+        --color: #{$text};
+        --primary-color: #{$primary};
+        --secondary-color: #{$secondary};
+        --card-background-color: #{$card-bg};
+        --card-border-color: #{$card-border};
+        --orange-panel-color: #{$orange-panel};
+        --gray-panel-color: #{$gray-panel};
+        --font-family: #{$font-family};
+        --theme-btn-bg: #{$theme-btn-bg};
+        --theme-btn-text: #{$theme-btn-text};
+        --common-button-bg: #{$common-btn-bg};
+        --common-button-hover: #{$common-btn-hover};
+        --common-button-text: #{$common-btn-text};
+        --common-button-font: #{$common-btn-font};
+        --mode-bg-image: #{$bg-img};
+    }
+
+// 2️⃣ Mixin for base button styles
+//    Pass bg, text color, hover-bg, font-family
+@mixin commonButton(
+    $bg,
+    $color,
+    $font) {
+    background-color: $bg;
+    color: $color;
+    font-family: $font;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    
+}
+
+
+
+// 3️⃣ Mixin for breadcrumb styles
+@mixin breadcrumbStyles( $active-color, $font-poppins, $orange-panel) {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: $font-poppins;
+
+    .breadcrumb-item {
+        margin-right: 1rem;
+
+        &:not(:last-child)::after {
+            content: ">";
+            margin-left: 1rem;
+            color: $orange-panel;
+        }
+
+        &.active {
+            // background-color: $active-bg;
+            color: $active-color;
+        }
+
+        a {
+            text-decoration: none;
+            color: $active-color;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $orange-panel;
+            }
+        }
+    }
+}

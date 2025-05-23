@@ -1,0 +1,61 @@
+.lazyImageWrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    min-height: 202px;
+}
+
+.shimmerLines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+}
+
+.shimmerLine {
+    height: 12px;
+    background: linear-gradient(90deg,
+            #f0f0f0 25%,
+            #e0e0e0 50%,
+            #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+    border-radius: 0px;
+}
+
+.line-1 {
+    width: 80%;
+}
+
+.line-2 {
+    width: 60%;
+}
+
+.line-3 {
+    width: 90%;
+}
+
+.line-4 {
+    width: 70%;
+}
+
+.line-5 {
+    width: 50%;
+}
+
+.lazyImg {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.4s ease-in-out;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}

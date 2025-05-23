@@ -1,0 +1,15 @@
+// src/components/CommonButton/CommonButton.module.scss
+@use '../../scss/themes' as *;
+@use '../../scss/mixins' as m;
+
+.commonBtn {
+    font-size: 2rem;
+    padding: 20px 45px;
+    border-radius: 50px;
+    @include m.commonButton
+        (
+            var(--common-button-bg),
+            var(--common-button-text),
+            var(--common-button-font)
+        );
+}   
